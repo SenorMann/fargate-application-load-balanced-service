@@ -1,7 +1,9 @@
-import ec2 = require('aws-cdk-lib/aws-ec2');
-import ecs = require('aws-cdk-lib/aws-ecs');
-import ecs_patterns = require('aws-cdk-lib/aws-ecs-patterns');
-import cdk = require('aws-cdk-lib');
+import ec2 from 'aws-cdk-lib/aws-ec2';
+import ecs from 'aws-cdk-lib/aws-ecs';
+import ecs_patterns from 'aws-cdk-lib/aws-ecs-patterns';
+import cdk from 'aws-cdk-lib';
+import path from "path";
+
 
 export class FargateApplicationLoadBalancedServiceStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
@@ -16,7 +18,8 @@ export class FargateApplicationLoadBalancedServiceStack extends cdk.Stack {
     new ecs_patterns.ApplicationLoadBalancedFargateService(this, "FargateService", {
       cluster,
       taskImageOptions: {
-        image: ecs.ContainerImage.fromRegistry("amazon/amazon-ecs-sample"),
+        containerPort: 8080,
+        image: ecs.ContainerImage.fromAsset(path.join(__dirname, "..")),
       },
     });
   }

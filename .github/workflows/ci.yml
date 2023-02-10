@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Transpile TS
+        run: npm run build
+
       - name: Bootstrap CDK
         run: |
           npm run bootstrap
