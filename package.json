@@ -5,7 +5,9 @@
     "fargate-application-load-balanced-service": "bin/fargate-application-load-balanced-service.js"
   },
   "scripts": {
+    "bootstrap": "cdk bootstrap --require-approval never --verbose",
     "build": "tsc",
+    "deploy": "cdk deploy --require-approval never --verbose",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
