@@ -1,7 +1,7 @@
-import ec2 from 'aws-cdk-lib/aws-ec2';
-import ecs from 'aws-cdk-lib/aws-ecs';
-import ecs_patterns from 'aws-cdk-lib/aws-ecs-patterns';
-import cdk from 'aws-cdk-lib';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import * as ecs from 'aws-cdk-lib/aws-ecs';
+import * as ecs_patterns from 'aws-cdk-lib/aws-ecs-patterns';
+import * as cdk from 'aws-cdk-lib';
 import path from "path";
 
 
