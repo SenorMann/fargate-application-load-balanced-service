@@ -9,9 +9,7 @@ export class FargateApplicationLoadBalancedServiceStack extends cdk.Stack {
 
     // Create VPC and Fargate Cluster
     // NOTE: Limit AZs to avoid reaching resource quotas
-    const vpc = ec2.Vpc.fromLookup(this, "MyVpc", {
-      vpcId: "vpc-04514834406cec305",
-    })
+    const vpc = new ec2.Vpc(this, 'MyVpc', { maxAzs: 2 });
     const cluster = new ecs.Cluster(this, 'Cluster', { vpc });
 
     // Instantiate Fargate Service with just cluster and image
